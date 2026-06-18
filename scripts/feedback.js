@@ -1,7 +1,7 @@
 export async function generateFeedback({ result, risk, pr, files, commits, authorData, apiKey }) {
   if (!apiKey) return "_AI feedback unavailable — API key not set._";
 
-  const isKimi = apiKey.startsWith("sk-") && !!process.env.KIMI_API_KEY;
+  const isKimi = !!process.env.KIMI_API_KEY;
 
   const endpoint = isKimi
     ? "https://api.moonshot.cn/v1/chat/completions"
